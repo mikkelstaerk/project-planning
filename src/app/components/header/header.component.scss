@@ -1,0 +1,19 @@
+
+@import "../../../variables";
+
+:host {
+  height:40px;
+  line-height: 40px;
+  padding:0 20px;
+  color: white;
+  background-color: $color-primary;
+  display: block;
+}
+
+.links {
+  float: right;
+
+  a {
+    color:rgba(white, 0.8);
+  }
+}

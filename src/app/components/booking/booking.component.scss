@@ -1,0 +1,38 @@
+@import "../../../variables";
+
+:host {
+  position: absolute;
+  background-color: $color-primary;
+  background:url(
+
+data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAQAAAAECAYAAACp8Z5+AAAAKklEQVQYV2MMWLu1ngEKGP//b2CECYA4/xkZIQIwDkghY+CaLf9BMjBtAP5CFUh+OHpJAAAAAElFTkSuQmCC
+    ) repeat;
+  left:10%;
+  right:40%;
+  top:2px;
+  bottom:2px;
+  display: block;
+  border-radius: 4px;
+}
+
+.title {
+  font-size: 10px;
+  padding:3px 0px 0px 20px;
+}
+
+.drag {
+  position: absolute;
+  width: 15px;
+  height:100%;
+  top:0;
+  cursor: ew-resize;
+
+  &.left {
+    left:0;
+    border-right:1px dotted white;
+  }
+  &.right {
+    right:0;
+    border-left:1px dotted white;
+  }
+}

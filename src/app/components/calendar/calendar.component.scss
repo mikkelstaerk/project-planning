@@ -1,0 +1,78 @@
+@import "../../../variables";
+
+$left-col-width:180px;
+$day-height: 40px;
+$day-font-size:9px;
+$header-bg-color:#f1f1f1;
+$day-bg-color:#f6f6f6;
+$day-bg-color-alt:#e9e9e9;
+
+:host {
+
+}
+
+.header {
+  background: $header-bg-color;
+  height:100px;
+  position: relative;
+
+}
+
+.calendar {
+  position: relative;
+}
+
+.calendar-container {
+  margin-left:$left-col-width;
+  &.header {
+    position: absolute;
+    bottom: 0;
+    height: $day-height;
+  }
+}
+.days {
+  position: relative;
+  clear: both;
+  display: flex;
+  flex-wrap: nowrap;
+
+  .day{
+    //float: left;
+    height:$day-height;
+    flex: 1;
+    //width: 20px;
+    text-align: center;
+    font-size: $day-font-size;
+    border-left: 1px solid #ccc;
+    border-bottom: 1px solid #ccc;
+    &.normal {
+      background-color: $day-bg-color;
+    }
+  }
+
+  &.odd {
+    .day {
+      background-color: $day-bg-color-alt;
+    }
+  }
+}
+
+.employees {
+  position: absolute;
+  top: 0;
+  left:0;
+  width: $left-col-width;
+
+}
+.employee {
+  height:$day-height;
+  line-height: $day-height;
+}
+
+.bookings {
+  top:0;
+  left:0;
+  right:0;
+  bottom: 0;
+  position: absolute;
+}

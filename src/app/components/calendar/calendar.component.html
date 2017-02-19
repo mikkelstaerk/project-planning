@@ -1,0 +1,41 @@
+
+<div class="container">
+
+  <div class="header">
+
+    <button (click)="moveWeeks(-3)"><</button>
+    <button (click)="updateDays()">today</button>
+    <button (click)="moveWeeks(3)">></button>
+
+    <div class="calendar-container header">
+      <div class="days">
+        <div class="day" *ngFor="let day of days">
+          {{day.date | date:'dd MMM'}}
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="calendar">
+    <div class="employees">
+      <div class="employee" *ngFor="let employee of employees">
+          {{employee.firstname}} {{employee.lastname}}
+      </div>
+    </div>
+
+    <div class="calendar-container" id="calendardays">
+      <div class="days" [ngClass]="{ odd: odd, even: even }" *ngFor="let employee of employees; let odd=odd; let even=even;">
+        <div class="day normal" data-employee="xxx" *ngFor="let day of days">
+
+        </div>
+        <div class="bookings">
+          <app-booking days="28" start="5" end="17"></app-booking>
+          <app-booking days="28" start="16" end="5"></app-booking>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>
