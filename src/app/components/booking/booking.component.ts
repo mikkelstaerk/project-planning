@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, ElementRef } from '@angular/core';
 
 @Component({
   selector: 'app-booking',
@@ -21,7 +21,7 @@ export class BookingComponent implements OnInit {
   right:string = "";
   dragging:boolean = false;
 
-  constructor() { }
+  constructor(private elRef: ElementRef) { }
 
   updateSize() {
     this.left = (this.start / this.days * 100).toString() + "%";
@@ -36,16 +36,24 @@ export class BookingComponent implements OnInit {
     this.dragging = false;
   }
 
-  public mouseMove(evn) {
+  public mouseMove(evn, left) {
     if(this.dragging) {
-      //var percent = evn.clientX - 
-      this.start = this.getDay();
-      this.updateSize();
+      let parentElm = this.elRef.nativeElement.parentElement;
+      let parentWidth = parentElm.offsetWidth;
+      if(left) {
+        let parentLeft = parentElm.getBoundingClientRect().left;
+        let percent = (evn.clientX+7 - parentLeft) / parentWidth;
+        this.left = ((percent*100)-2).toString() + "%";
+      } else {
+        let parentRight = parentElm.getBoundingClientRect().right;
+        let percent = (evn.clientX-7 - parentRight) / parentWidth;
+        this.right = (-((percent*100)+2)).toString() + "%";
+       }
     }
   }
 
-  getDay() {
-    return 3;
+  getDay(percent) {
+    return Math.floor(this.days * percent);
   }
 
   ngOnInit() {

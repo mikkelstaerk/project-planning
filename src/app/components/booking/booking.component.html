@@ -1,9 +1,9 @@
 <span class="title">Project name</span>
 <div class="drag left"
-(mousedown)="mouseDown($event)"
-(mouseup)="mouseUp($event)"
-(mousemove)="mouseMove($event)"></div>
+(mousedown)="mouseDown($event, true)"
+(mouseup)="mouseUp($event, true)"
+(mousemove)="mouseMove($event, true)"></div>
 <div class="drag right"
-(mousedown)="mouseDown($event)"
-(mouseup)="mouseUp($event)"
-(mousemove)="mouseMove($event)"></div>
+(mousedown)="mouseDown($event, false)"
+(mouseup)="mouseUp($event, false)"
+(mousemove)="mouseMove($event, false)"></div>
